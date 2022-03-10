@@ -5,10 +5,10 @@ const app = express();
 //initial port
 const PORT = process.env.PORT || 3001;
 //routes
-const api = require('./routes/api.js');
+const api = require('./Develop/routes/api.js');
 
 
-const html = require('./routes/html.js');
+const html = require('./Develop/routes/html.js');
 
 //Middleware for parsing JSON and urlencoded form data
 app.use(express.urlencoded({ extended: true }));
