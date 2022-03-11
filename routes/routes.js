@@ -12,10 +12,19 @@ module.exports = app => {
              res.json(notes);
         });
 
-        //Display a specific note
-        app.post("/api/notes/:id",function(req,res){
-            res.json(notes[req.params.id])
-        });
+        //setup /api/notes post route
+        app.post("/api/notes",function(req,res){
+            //receives a new note, adds it to existing notes in db.json
+            let newNote = req.body;
+            notes.push(newNote);
+            updateDb();
+            return console.log("Added a new note" + newNote.title);
+        })
+
+        //
+    
+
     })
+
 
 }
