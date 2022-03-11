@@ -10,6 +10,12 @@ module.exports = app => {
         app.get("/api/notes",function(req,res){
              // Read the db.json file and return all saved notes as JSON.
              res.json(notes);
-        })
+        });
+
+        //Display a specific note
+        app.post("/api/notes/:id",function(req,res){
+            res.json(notes[req.params.id])
+        });
     })
+
 }
