@@ -25,6 +25,13 @@ module.exports = app => {
         app.get("/api/notes/:id",function(req,res){
             res.json(notes[req.params.id]);
         });
+
+        //Deletes a specific note
+        app.delete("/api/notes/:id",function(req,res){
+            notes.splice(req.params.id,1);
+            updateDb()
+            console.log("Deleted note with id "+req.params.id);
+        })
     
 
     })
