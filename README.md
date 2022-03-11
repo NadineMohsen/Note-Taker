@@ -61,8 +61,8 @@ For any questions you can reach me on github or by email
 - Email nadine.mohsen@hotmail.com
 
 ## Demo
-![Demo1](Demo1.png)
-![Demo2](Demo2.png)
+![Demo1](./Demo1.png)
+![Demo2](./Demo2.png)
 
 ## Links to Demo
 
