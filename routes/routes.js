@@ -19,9 +19,12 @@ module.exports = app => {
             notes.push(newNote);
             updateDb();
             return console.log("Added a new note" + newNote.title);
-        })
+        });
 
-        //
+        //Retreives a specific note
+        app.get("/api/notes/:id",function(req,res){
+            res.json(notes[req.params.id]);
+        });
     
 
     })
