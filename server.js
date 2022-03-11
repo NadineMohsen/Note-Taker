@@ -1,28 +1,21 @@
-const express = require('express');
+// Require Dependencies
+const express = require("express");
+const fs = require("fs");
 const path = require('path');
-const api = require('./routes/index.js');
 
-const PORT = process.env.PORT || 3001;
-
+// Initialize express app
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Middleware for parsing JSON and urlencoded form data
-app.use(express.json());
+// Setup data parsing
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', api);
+app.use(express.json());
+app.use(express.static(__dirname));
 
-app.use(express.static('public'));
+//Require routes file
+require('./routes/routes')(app);
 
-// GET Route for homepage
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
-);
-
-// GET Route for feedback page
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/notes.html'))
-);
-
-app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
-);
+// Setup listener
+app.listen(PORT, function() {
+    console.log("App listening on PORT: " + PORT);
+});  
